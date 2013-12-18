@@ -18,9 +18,9 @@ body {
   -webkit-font-smoothing: antialiased
   font-smoothing: antialiased
   color: #444
-  background: #F4F4F4
+  background: #FFF
 
-  font: 19px/1.5em "proxima-nova","HelveticaNeue",Helvetica,Arial,sans-serif;
+  font: 19px/1.5em "proxima-nova","Open Sans","HelveticaNeue",Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -43,28 +43,21 @@ header.header {
   font-size: 18px
   font-weight: 600
   user-select: none
-  background: #74BADE
 
   a {
-    color: #FFF
     text-decoration: none
   }
 
   nav {
-    height: 130px
+    height: 58px
     line-height: 58px
     width: 700px
     margin: auto
+    padding: 0 30px
 
     h1.logo {
       margin: 0 25px 0 0
-      font-size: 27px
-
-      a.blog {
-        display: inline-block
-        margin: 0 0 0 5px
-        font-size: 22px
-      }
+      font-size: 22px
     }
 
     ul {
@@ -97,10 +90,7 @@ header.header {
 article.main {
   padding: 30px
   width: 700px
-  margin: -70px auto 0 auto
-
-  background: #FFF
-  box-shadow: 0px 0px 3px rgba(139, 127, 127, 0.4)
+  margin: 0 auto
 
   section {
     border-bottom: 2px solid #F6F6F6
@@ -108,31 +98,115 @@ article.main {
     padding: 0 0 35px 0
     margin: 0 0 35px 0
 
-    h2 {
-      font-weight: 600
-      font-size: 30px
-      margin: 0 0 25px 0
-      font-family: "Open Sans", sans-serif
+    header {
+      margin-bottom: 20px
+
+      h2 {
+        font-weight: 600
+        font-size: 30px
+        margin: 0 0 6px 0
+        font-family: "Open Sans", sans-serif
+
+        a {
+          text-decoration: none
+        }
+      }
+
+      h3.author {
+        margin: 0
+        color: #6A6A6A
+        font-weight: normal
+        font-style: italic
+        font-size: 15px
+
+        a {
+          color: #6A6A6A;
+          text-decoration: none
+        }
+      }
+
+      time {
+        position: absolute
+        right: 0
+        top: 0
+        font-size: 12px
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #CEC6C6;
+      }
+    }
+
+    .body {
+      hr {
+        border: 0
+        height: 2px
+        background: #F6F6F6
+        max-width: 350px
+        margin: 30px auto
+        border-radius: 5px
+      }
 
       a {
         text-decoration: none
+        font-weight: 600
       }
-    }
 
-    p {
-      &:last-child {
-        margin-bottom: 0
+      p {
+        margin: 1em 0
+
+        &:last-child {
+          margin-bottom: 0
+        }
       }
-    }
 
-    time {
-      position: absolute
-      right: 0
-      top: 0
-      font-size: 12px
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #CEC6C6;
+      ul {
+        padding: 0 20px
+      }
+
+      ul li, ol li {
+        margin: 0 0 10.5px 0
+      }
+
+      img {
+        display: block
+        border: 3px solid #F6F6F6
+        margin: 1em 0
+      }
+
+      pre {
+        background: #3F3F3F
+        margin: 30px -30px
+        padding: 20px 30px
+        -webkit-font-smoothing: subpixel-antialiased
+
+        code {
+          color: #DCDCDC
+          background: none
+          padding: 0
+          display: block
+          overflow: auto
+          width: 100%
+          font-weight: normal
+          font-family: Monaco, serif
+          font-size: 12px
+          line-height: normal
+        }
+      }
+
+      .clip {
+        border: 3px solid #F6F6F6
+        max-width: 640px
+        max-height: 310px
+        margin: auto
+        overflow: hidden
+        margin: 20px 0
+
+        img {
+          margin: 0
+          display: block
+          border: none
+        }
+      }
     }
 
     &:last-child {

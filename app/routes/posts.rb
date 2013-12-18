@@ -5,14 +5,19 @@ module Blog
         error 404
       end
 
-      get '/' do
+      get '/feed' do
         @posts = Post.all
-        erb :index
+        builder :feed
       end
 
       get '/:slug' do
         @post = Post.find!(params[:slug])
         erb :post
+      end
+
+      get '/' do
+        @posts = Post.all
+        erb :index
       end
     end
   end

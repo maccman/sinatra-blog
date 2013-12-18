@@ -1,10 +1,20 @@
 <% @posts.each do |post| %>
-  <section>
-    <h2><a href="/<%= post.slug %>"><%= post.title %></a></h2>
+  <section class="<%= post.slug %>">
+    <header>
+      <h2>
+        <a href="/<%= post.slug %>"><%= post.title %></a>
+      </h2>
 
-    <% if post.date %>
-      <time><%= post.date.to_s(:long_ordinal) %></time>
-    <% end %>
+      <% if post.author %>
+        <h3 class="author">
+          by <%= post.author %>
+        </h3>
+      <% end %>
+
+      <% if post.date %>
+        <time><%= post.date.to_s(:long_ordinal) %></time>
+      <% end %>
+    </header>
 
     <div class="body">
       <%== post.render %>

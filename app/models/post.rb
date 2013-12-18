@@ -10,7 +10,7 @@ module Blog
       def self.all
         paths = Dir[(path + '*.md').to_s]
         posts = paths.map {|p| self.new(p) }
-        posts.sort_by {|p| p.date }.reverse
+        posts.sort_by {|p| p.date || Date.current }.reverse
       end
 
       def self.[](slug)
@@ -46,6 +46,11 @@ module Blog
       def date(value = nil)
         @date = Date.parse(value) if value
         @date
+      end
+
+      def author(value = nil)
+        @author = value if value
+        @author
       end
 
       def render
