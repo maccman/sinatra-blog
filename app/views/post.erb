@@ -1,0 +1,13 @@
+<% content_for :title do %><%= @post.title %><% end %>
+
+<section>
+  <h2><a href="/<%= @post.slug %>"><%= @post.title %></a></h2>
+
+  <% if @post.date %>
+    <time><%= @post.date.to_s(:long_ordinal) %></time>
+  <% end %>
+
+  <div class="body">
+    <%== @post.render %>
+  </div>
+</section>

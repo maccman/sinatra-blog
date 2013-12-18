@@ -1,0 +1,142 @@
+//= require_self
+//= require_tree .
+
+@import './mixins'
+
+*, *:before, *:after {
+  box-sizing: border-box
+}
+
+body, html {
+  height: 100%
+  margin: 0
+  padding: 0
+  overflow: auto
+}
+
+body {
+  -webkit-font-smoothing: antialiased
+  font-smoothing: antialiased
+  color: #444
+  background: #F4F4F4
+
+  font: 19px/1.5em "proxima-nova","HelveticaNeue",Helvetica,Arial,sans-serif;
+}
+
+a {
+  text-decoration: underline
+  color: #4b525b
+}
+
+hr {
+  border: 0
+  height: 2px
+  background: #F6F6F6
+  max-width: 350px
+  margin: 20px 0
+}
+
+// Site specific
+
+header.header {
+  overflow: hidden
+  font-size: 18px
+  font-weight: 600
+  user-select: none
+  background: #74BADE
+
+  a {
+    color: #FFF
+    text-decoration: none
+  }
+
+  nav {
+    height: 130px
+    line-height: 58px
+    width: 700px
+    margin: auto
+
+    h1.logo {
+      margin: 0 25px 0 0
+      font-size: 27px
+
+      a.blog {
+        display: inline-block
+        margin: 0 0 0 5px
+        font-size: 22px
+      }
+    }
+
+    ul {
+      margin: 0 5px
+      padding: 0
+      overflow: hidden
+      list-style: none
+      float: left
+    }
+
+    li {
+      float: left
+      padding: 0 40px 0 0
+    }
+
+    .right {
+      float: right
+
+      li {
+        padding: 0 0 0 40px
+      }
+    }
+
+    .active {
+      border-bottom: 2px solid #0997D5
+    }
+  }
+}
+
+article.main {
+  padding: 30px
+  width: 700px
+  margin: -70px auto 0 auto
+
+  background: #FFF
+  box-shadow: 0px 0px 3px rgba(139, 127, 127, 0.4)
+
+  section {
+    border-bottom: 2px solid #F6F6F6
+    position: relative
+    padding: 0 0 35px 0
+    margin: 0 0 35px 0
+
+    h2 {
+      font-weight: 600
+      font-size: 30px
+      margin: 0 0 25px 0
+      font-family: "Open Sans", sans-serif
+
+      a {
+        text-decoration: none
+      }
+    }
+
+    p {
+      &:last-child {
+        margin-bottom: 0
+      }
+    }
+
+    time {
+      position: absolute
+      right: 0
+      top: 0
+      font-size: 12px
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #CEC6C6;
+    }
+
+    &:last-child {
+      border-bottom: 0
+    }
+  }
+}

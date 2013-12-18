@@ -1,0 +1,6 @@
+tmp
+.DS_Store
+.env
+mails
+tmp/gems.json
+keys
