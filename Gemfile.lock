@@ -9,13 +9,6 @@ GIT
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
 
-GIT
-  remote: git://github.com/rack/rack-contrib.git
-  revision: 951760b1710634623ebbccef8d65df9139bb41c2
-  specs:
-    rack-contrib (1.2.0)
-      rack (>= 0.9.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -26,6 +19,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     atomic (1.1.14)
+    builder (3.2.2)
     closure-compiler (1.1.10)
     coffee-script (2.2.0)
       coffee-script-source
@@ -62,8 +56,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    rack_csrf (2.4.0)
-      rack (>= 0.9)
     raindrops (0.12.0)
     rake (10.1.0)
     rdiscount (2.1.7)
@@ -102,6 +94,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  builder
   closure-compiler
   coffee-script
   dalli
@@ -111,9 +104,7 @@ DEPENDENCIES
   i18n
   json (~> 1.7.7)
   memcachier
-  rack-contrib!
   rack-ssl
-  rack_csrf
   rake
   rdiscount
   sinatra
