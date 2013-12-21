@@ -6,15 +6,17 @@
       <a href="/<%= @post.slug %>"><%= @post.title %></a>
     </h2>
 
-    <% if @post.author %>
-      <h3 class="author">
-        by <%= @post.author %>
-      </h3>
+    <% if @post.date %>
+      <time datatime="<%= @post.date.to_s %>">
+        <a href="/<%= @post.slug %>">
+          <%= @post.date.to_s(:short_ordinal) %>
+        </a>
+      </time>
     <% end %>
 
-    <% if @post.date %>
-      <time><%= @post.date.to_s(:long_ordinal) %></time>
-    <% end %>
+    <h3 class="author">
+      by <%= @post.author %>
+    </h3>
   </header>
 
   <div class="body">
