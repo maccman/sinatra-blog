@@ -10,7 +10,13 @@ module Blog
       def self.all
         paths = Dir[(path + '*.md').to_s]
         posts = paths.map {|p| self.new(p) }
+        posts.reject! {|p| p.draft? }
         posts.sort_by {|p| p.date || Date.current }.reverse
+      end
+
+      def self.paginate(number = 0, limit = 10)
+        page = number * limit
+        all[page..(page + limit)] || []
       end
 
       def self.[](slug)
@@ -23,11 +29,15 @@ module Blog
         self[slug] || raise(NotFound.new)
       end
 
+      def self.cache
+        @dalli ||= Dalli::Client.new
+      end
+
       attr_reader :path
 
       def initialize(path)
         @path = Pathname(path)
-        render
+        setup
       end
 
       def slug
@@ -36,6 +46,20 @@ module Blog
 
       def content
         @content ||= @path.read
+      end
+
+      def markdown
+        @markdown ||= begin
+          eruby = Erubis::EscapedEruby.new(content)
+          eruby.result(binding)
+        end
+      end
+
+      def html
+        @html ||= begin
+          renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+          renderer.render(markdown)
+        end
       end
 
       def title(value = nil)
@@ -48,18 +72,38 @@ module Blog
         @date
       end
 
+      def description
+        (markdown[0..60] || '').strip
+      end
+
       def author(value = nil)
         @author = value if value
         @author
       end
 
+      def draft!
+        @draft = true
+      end
+
+      def draft?
+        @draft
+      end
+
+      def mtime
+        @path.mtime
+      end
+
+      def key
+        [slug, mtime.to_i].join(':')
+      end
+
       def render
-        @render ||= begin
-          eruby = Erubis::EscapedEruby.new(content)
-          body  = eruby.result(binding)
-          RDiscount.new(body).to_html
+        self.class.cache.fetch(key) do
+          html
         end
       end
+
+      alias_method :setup, :markdown
     end
   end
 end

@@ -5,9 +5,20 @@ module Blog
         error 404
       end
 
-      get '/feed' do
+      get '/apple-touch-icon*' do
+        404
+      end
+
+      get '/feed', provides: 'application/atom+xml' do
         @posts = Post.all
         builder :feed
+      end
+
+      get '/page/:number' do
+        number = Integer(params[:number])
+        @posts = Post.paginate(number)
+
+        erb :index
       end
 
       get '/:slug' do
@@ -16,7 +27,7 @@ module Blog
       end
 
       get '/' do
-        @posts = Post.all
+        @posts = Post.paginate
         erb :index
       end
     end

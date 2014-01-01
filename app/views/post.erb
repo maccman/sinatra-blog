@@ -1,7 +1,14 @@
 <% content_for :title do %><%= @post.title %><% end %>
+<% content_for :description do %><%= @post.description %><% end %>
 
-<section class="<%= @post.slug %>">
+<section class="post <%= @post.slug %>">
   <header>
+    <% if @post.draft? %>
+      <h3 class="draft">
+        This is a unpublished draft &mdash; please keep the URL private.
+      </h3>
+    <% end %>
+
     <h2>
       <a href="/<%= @post.slug %>"><%= @post.title %></a>
     </h2>
@@ -14,9 +21,11 @@
       </time>
     <% end %>
 
-    <h3 class="author">
-      by <%= @post.author %>
-    </h3>
+    <% if @post.author %>
+      <h3 class="author">
+        by <a href="<%= @post.author_url %>"><%= @post.author %></a>
+      </h3>
+    <% end %>
   </header>
 
   <div class="body">

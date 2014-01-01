@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <section class="<%= post.slug %>">
+  <section class="post <%= post.slug %>">
     <header>
       <h2>
         <a href="/<%= post.slug %>"><%= post.title %></a>
@@ -13,13 +13,37 @@
         </time>
       <% end %>
 
-      <h3 class="author">
-        by <%= post.author %>
-      </h3>
+      <% if post.author %>
+        <h3 class="author">
+          by <a href="<%= post.author_url %>"><%= post.author %></a>
+        </h3>
+      <% end %>
     </header>
 
     <div class="body">
       <%== post.render %>
+    </div>
+  </section>
+<% end %>
+
+<% content_for :footer do %>
+  <section class="pagination">
+    <div class="wrap">
+      <% if paginate_next?(@posts) || paginate_previous? %>
+        <% if paginate_previous? %>
+          <a class="button" href="<%= paginate_previous_url %>">
+            <i class="fa fa-long-arrow-left"></i>
+            Previous
+          </a>
+        <% end %>
+
+        <% if paginate_next?(@posts) %>
+          <a class="button" href="<%= paginate_next_url %>">
+            Next
+            <i class="fa fa-long-arrow-right"></i>
+          </a>
+        <% end %>
+      <% end %>
     </div>
   </section>
 <% end %>
