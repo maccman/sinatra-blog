@@ -2,26 +2,41 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title><%= yield_content :title || 'My Blog' %></title>
+  <title><%= title %></title>
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="<%= asset_path 'layout.css' %>">
 
-  <script src="<%= asset_path 'layout.js' %>"></script>
+  <link rel="alternate" type="application/rss+xml" href="http://blog.io/feed" />
+
+  <meta name="referrer" content="always"/>
+  <meta name="description" content="Blog">
+
+  <meta property="og:site_name" content="Blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= url %>" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:description" content="<%= description %>" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%== yield_content :head %>
 </head>
 <body>
   <header class="header">
-    <nav>
+    <nav class="wrap">
       <h1 class="logo">
-        <a href="/">blog</a>
+        <a class="blog" href="/">blog</a>
       </h1>
     </nav>
   </header>
 
-  <article class="main">
+  <article class="main wrap">
     <%== yield %>
   </article>
+
+  <footer class="footer">
+    <%== yield_content :footer %>
+  </footer>
 </body>
 </html>

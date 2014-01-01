@@ -1,3 +1,4 @@
+//= require font_awesome
 //= require_self
 //= require_tree .
 
@@ -8,19 +9,17 @@
 }
 
 body, html {
-  height: 100%
   margin: 0
   padding: 0
-  overflow: auto
 }
 
 body {
   -webkit-font-smoothing: antialiased
   font-smoothing: antialiased
-  color: #444
   background: #FFF
 
-  font: 19px/1.5em "proxima-nova","Open Sans","HelveticaNeue",Helvetica,Arial,sans-serif;
+  color: #444
+  font: 19px/1.5em "proxima-nova", "OpenSans", "HelveticaNeue", Helvetica, Arial, sans-serif
 }
 
 a {
@@ -28,18 +27,15 @@ a {
   color: #4b525b
 }
 
-hr {
-  border: 0
-  height: 2px
-  background: #F6F6F6
-  max-width: 350px
-  margin: 20px 0
-}
-
 // Site specific
+
+.wrap {
+  margin: 0 auto
+}
 
 header.header {
   overflow: hidden
+  font-family: "Open Sans", sans-serif
   font-size: 18px
   font-weight: 600
   user-select: none
@@ -49,67 +45,47 @@ header.header {
   }
 
   nav {
-    height: 58px
-    line-height: 58px
-    width: 700px
+    height: 40px
+    line-height: 70px
     margin: auto
-    padding: 0 30px
+    padding: 0 15px
 
     h1.logo {
-      margin: 0 25px 0 0
+      float: left
+      margin: 0
       font-size: 22px
-    }
-
-    ul {
-      margin: 0 5px
-      padding: 0
-      overflow: hidden
-      list-style: none
-      float: left
-    }
-
-    li {
-      float: left
-      padding: 0 40px 0 0
-    }
-
-    .right {
-      float: right
-
-      li {
-        padding: 0 0 0 40px
-      }
-    }
-
-    .active {
-      border-bottom: 2px solid #0997D5
     }
   }
 }
 
 article.main {
-  padding: 30px
-  width: 700px
-  margin: 0 auto
+  padding: 15px
 
   section {
-    border-bottom: 2px solid #F6F6F6
     position: relative
-    padding: 0 0 35px 0
-    margin: 0 0 35px 0
+    padding: 0 0 80px 0
+    margin: 0 0 80px 0
 
     header {
-      margin-bottom: 20px
+      margin-bottom: 25px
 
       h2 {
         font-weight: 600
         font-size: 30px
         margin: 0 0 6px 0
         font-family: "Open Sans", sans-serif
+        line-height: 35px
 
         a {
           text-decoration: none
         }
+      }
+
+      h3.draft {
+        font-weight: normal
+        font-style: italic
+        font-size: 23px
+        color: #777
       }
 
       h3.author {
@@ -151,8 +127,28 @@ article.main {
         border-radius: 5px
       }
 
+      h3 {
+        font-size: 22px
+        font-weight: 600
+      }
+
+      h4 {
+        font-size: 19px
+        margin: 0 0 -0.5em 0
+      }
+
       a {
         text-decoration: none
+        font-weight: 600
+        border-bottom: 2px solid #F4F4F4
+      }
+
+      a:hover {
+        text-decoration: none
+        border-bottom: 2px solid #DDDDDD
+      }
+
+      b, strong {
         font-weight: 600
       }
 
@@ -176,25 +172,65 @@ article.main {
         display: block
         border: 3px solid #F6F6F6
         margin: 1em 0
+
+        &.center {
+          margin: 1em auto
+        }
+      }
+
+      blockquote {
+        border-left: 5px solid #F6F6F6
+        margin: 2em 20px
+        padding: 0 15px
+      }
+
+      table {
+        border-left: 5px solid #F6F6F6;
+        margin: 2em 20px;
+        padding: 0 15px;
+
+        td {
+          vertical-align: top;
+        }
+
+        &.key-value {
+          td:first-child {
+            font-weight: bold
+            width: 150px
+          }
+        }
+      }
+
+      code {
+        background: #F8F8F8
+        border-radius: 5px;
+        border: 1px solid #DDDDDD
+        display: inline;
+        padding: 2px 7px
+        font-size: 13px
+
+        font-weight: normal
+        font-family: Monaco, "HelveticaNeue", Helvetica, Arial, sans-serif
+
+        line-height: normal
+        color: #1E1E1E
       }
 
       pre {
-        background: #3F3F3F
+        background: #F8F8F8
         margin: 30px -30px
         padding: 20px 30px
         -webkit-font-smoothing: subpixel-antialiased
 
         code {
-          color: #DCDCDC
           background: none
           padding: 0
           display: block
           overflow: auto
           width: 100%
-          font-weight: normal
-          font-family: Monaco, serif
-          font-size: 12px
-          line-height: normal
+
+          border: none
+          border-radius: 0
         }
       }
 
@@ -214,8 +250,87 @@ article.main {
       }
     }
 
-    &:last-child {
-      border-bottom: 0
+    &:after {
+      content: ''
+      display: block
+      position: absolute
+      bottom: 0
+      left: -75px
+      right: -75px
+      height: 5px
+      background: #F6F6F6
+      border-radius: 5px
     }
+
+    &:last-child {
+      padding-bottom: 0
+      margin-bottom: 0
+    }
+
+    &:last-child:after {
+      display: none
+    }
+  }
+}
+
+footer.footer {
+  border-bottom: 20px solid #3498DB
+
+  section {
+    border-top: 1px solid #F2F2F2
+
+    .wrap {
+      padding: 50px 25px
+    }
+  }
+
+  h3 {
+    font-size: 22px
+    font-weight: 600
+    margin: 0
+  }
+
+  .pagination {
+    text-align: right
+    border: none
+
+    .wrap {
+      padding: 20px 40px 25px 30px
+    }
+
+    .button {
+      border: 2px solid #333333
+      font-weight: 600
+      color: #333333
+      padding: 0 15px
+      border-radius: 20px
+      display: inline-block
+      height: 35px
+      line-height: 33px
+      text-transform: uppercase
+      font-size: 15px
+      text-decoration: none
+      margin-left: 15px
+
+      .fa {
+        margin-left: 2px
+      }
+    }
+  }
+}
+
+@media only all and (min-width: 650px) {
+  header.header {
+    nav {
+      padding: 30px
+    }
+  }
+
+  article.main {
+    padding: 30px
+  }
+
+  .wrap {
+    width: 700px
   }
 }
