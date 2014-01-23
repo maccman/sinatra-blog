@@ -31,3 +31,12 @@ Demo here http://sinatra-example-blog.herokuapp.com
     heroku addons:add memcachier:dev
 
     git push heroku master
+
+## FAQ
+
+1. How do I fix the `Dalli::RingError at /`, **No server available** ?
+
+From the shell, launch *memcached*:
+```
+$ memcached -l localhost &
+```
