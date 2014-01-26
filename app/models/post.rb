@@ -8,7 +8,7 @@ module Blog
       end
 
       def self.all
-        paths = Dir[(path + '*.md').to_s]
+        paths = Dir[(path + '**' + '*.md').to_s]
         posts = paths.map {|p| self.new(p) }
         posts.reject! {|p| p.draft? }
         posts.sort_by {|p| p.date || Date.current }.reverse
@@ -21,7 +21,7 @@ module Blog
 
       def self.[](slug)
         slug  = slug.underscore.gsub(/\W/, '')
-        paths = Dir[(path + "#{slug}.md").to_s]
+        paths = Dir[(path + '**' + "#{slug}.md").to_s]
         paths.first && self.new(paths.first)
       end
 
@@ -41,11 +41,11 @@ module Blog
       end
 
       def slug
-        @path.basename('.md').to_s.dasherize
+        path.basename('.md').to_s.dasherize
       end
 
       def content
-        @content ||= @path.read
+        @content ||= path.read
       end
 
       def markdown
@@ -86,11 +86,11 @@ module Blog
       end
 
       def draft?
-        @draft
+        @draft || parent_draft?
       end
 
       def mtime
-        @path.mtime
+        path.mtime
       end
 
       def key
@@ -104,6 +104,12 @@ module Blog
       end
 
       alias_method :setup, :markdown
+
+      protected
+
+      def parent_draft?
+        path.parent.basename.to_s == 'drafts'
+      end
     end
   end
 end
