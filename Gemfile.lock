@@ -37,7 +37,7 @@ GEM
     execjs (2.0.2)
     hike (1.2.3)
     i18n (0.6.9)
-    json (1.7.7)
+    json (1.8.1)
     kgio (2.9.2)
     memcachier (0.0.2)
     minitest (4.7.5)
@@ -64,7 +64,7 @@ GEM
     stylus (1.0.1)
       execjs
       stylus-source
-    stylus-source (0.31.0)
+    stylus-source (0.42.2)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -73,9 +73,9 @@ GEM
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     tzinfo (0.3.39)
-    uglifier (2.2.1)
+    uglifier (2.5.0)
       execjs (>= 0.3.0)
-      multi_json (~> 1.0, >= 1.0.2)
+      json (>= 1.8.0)
     unicorn (4.8.2)
       kgio (~> 2.6)
       rack
@@ -94,7 +94,7 @@ DEPENDENCIES
   eco
   erubis
   i18n
-  json (~> 1.7.7)
+  json
   memcachier
   rack-ssl
   rake
@@ -103,7 +103,7 @@ DEPENDENCIES
   sinatra-contrib!
   sprockets
   stylus
-  stylus-source (= 0.31.0)
+  stylus-source
   thin
   uglifier
   unicorn

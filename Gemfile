@@ -18,9 +18,9 @@ gem 'closure-compiler'
 gem 'yui-compressor'
 gem 'coffee-script'
 gem 'stylus'
-gem 'stylus-source', '0.31.0'
+gem 'stylus-source'
 gem 'eco'
-gem 'json', '~> 1.7.7'
+gem 'json'
 gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
 
 group :development do
