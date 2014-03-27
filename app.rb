@@ -28,7 +28,7 @@ module Blog
   class App < Sinatra::Application
     configure do
       set :root, Dir.pwd
-      set :root, 'app/views'
+      set :views, 'app/views'
 
       disable :method_override
       disable :static
