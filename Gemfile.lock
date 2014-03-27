@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/maccman/sinatra-contrib.git
-  revision: c34fc5fc494d7bcf15d796c7c5319291dd5b2fe1
+  revision: 3dde2819a31791a9124d916c4449df0741af45f9
   specs:
     sinatra-contrib (1.4.1)
       multi_json
@@ -12,28 +12,21 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.0.2)
-      i18n (~> 0.6, >= 0.6.4)
+    activesupport (4.0.4)
+      i18n (~> 0.6, >= 0.6.9)
       minitest (~> 4.2)
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    atomic (1.1.14)
+    atomic (1.1.16)
     builder (3.2.2)
     closure-compiler (1.1.10)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
-    columnize (0.3.6)
+    coffee-script-source (1.7.0)
     daemons (1.1.9)
-    dalli (2.6.4)
-    debugger (1.6.3)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.4)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.4)
+    dalli (2.7.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -45,45 +38,45 @@ GEM
     hike (1.2.3)
     i18n (0.6.9)
     json (1.7.7)
-    kgio (2.8.1)
+    kgio (2.9.2)
     memcachier (0.0.2)
     minitest (4.7.5)
-    multi_json (1.8.2)
+    multi_json (1.9.2)
     rack (1.5.2)
-    rack-protection (1.5.1)
+    rack-protection (1.5.2)
       rack
-    rack-ssl (1.3.3)
+    rack-ssl (1.4.1)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    raindrops (0.12.0)
-    rake (10.1.0)
-    redcarpet (2.3.0)
+    raindrops (0.13.0)
+    rake (10.2.1)
+    redcarpet (3.1.1)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    sprockets (2.10.1)
+    sprockets (2.12.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    stylus (1.0.0)
+    stylus (1.0.1)
       execjs
       stylus-source
     stylus-source (0.31.0)
-    thin (1.6.1)
+    thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
-    thread_safe (0.1.3)
-      atomic
+    thread_safe (0.3.1)
+      atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
-    tzinfo (0.3.38)
+    tzinfo (0.3.39)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.7.0)
+    unicorn (4.8.2)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -98,7 +91,6 @@ DEPENDENCIES
   closure-compiler
   coffee-script
   dalli
-  debugger
   eco
   erubis
   i18n

@@ -25,5 +25,4 @@ gem 'sinatra-contrib', github: 'maccman/sinatra-contrib'
 
 group :development do
   gem 'thin'
-  gem 'debugger', require: 'ruby-debug'
 end
