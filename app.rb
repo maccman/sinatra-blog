@@ -8,7 +8,6 @@ $: << File.expand_path('../lib', __FILE__)
 
 # Require base
 require 'sinatra/base'
-require 'rack/best_standards_support'
 require 'active_support/core_ext/string'
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash'
@@ -32,7 +31,7 @@ module Blog
     end
 
     use Rack::Deflater
-    use Rack::BestStandardsSupport
+    use Rack::Standards
 
     use Routes::Static
 
