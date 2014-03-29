@@ -2,8 +2,9 @@ module Blog
   module Routes
     class Static < Sinatra::Application
       configure do
-        set :views, 'app/views'
-        set :root, File.expand_path('../../../', __FILE__)
+        set :views, App.settings.views
+        set :root, App.settings.root
+
         disable :method_override
         disable :protection
         enable :static
