@@ -30,7 +30,11 @@ module Blog
       end
 
       def self.cache
-        @dalli ||= Dalli::Client.new
+        if App.settings.production?
+          @cache ||= Dalli::Client.new
+        else
+          @cache ||= ActiveSupport::Cache::MemoryStore.new
+        end
       end
 
       attr_reader :path
